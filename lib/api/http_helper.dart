@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:http/http.dart' as http;
 import 'package:movie_db/model/movie.dart';
 
@@ -13,7 +14,6 @@ class HttpHelper {
   Future<List> getUpcoming() async {
     final String upcoming = urlBase + urlUpcoming + urlKey + urlLanguage;
 
-    //waits for a Future to complete. It won't go to next line of its thread until it completes this line
     http.Response result = await http.get(upcoming);
 
     if (result.statusCode == HttpStatus.ok) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movie_db/model/movie.dart';
-import '../api/http_helper.dart';
 import 'package:movie_db/screen/movie_detail_screen.dart';
+
+import '../api/http_helper.dart';
 
 class MovieList extends StatefulWidget {
   @override
