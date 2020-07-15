@@ -32,8 +32,15 @@ class MovieDetailScreen extends StatelessWidget {
                 height: height / 1.5,
                 child: Image.network(path),
               ),
+
+              Text('Overview',
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.black,
+                fontWeight: FontWeight.bold
+              ),),
               Container(
-                padding: EdgeInsets.only(left: 16.0, right: 16.0),
+                padding: EdgeInsets.all(16.0),
                 child: Text(_movie.overview),
               )
             ],
