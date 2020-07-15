@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_db/model/movie.dart';
 import '../api/http_helper.dart';
+import 'package:movie_db/screen/movie_detail_screen.dart';
 
 class MovieList extends StatefulWidget {
   @override
@@ -52,6 +53,12 @@ class _MovieListState extends State<MovieList> {
             color: Colors.white,
             elevation: 2.0,
             child: ListTile(
+              onTap: (){
+                MaterialPageRoute route = MaterialPageRoute(
+                  builder: (_) => MovieDetailScreen(_movies[position])
+                );
+                Navigator.push(context, route);
+              },
               leading: CircleAvatar(
                 backgroundImage: image,
               ),
