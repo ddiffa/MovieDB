@@ -15,6 +15,7 @@ Widget buildList(List results) {
         color: Colors.white,
         elevation: 2.0,
         child: ListTile(
+          contentPadding: EdgeInsets.all(8.0),
           onTap: () {
             MaterialPageRoute route = MaterialPageRoute(
                 builder: (_) => MovieDetailScreen(results[position]));

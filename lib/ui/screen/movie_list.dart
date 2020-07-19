@@ -20,19 +20,21 @@ class _MovieListState extends State<MovieList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Movies'),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.search),
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SearchScreen()));
-              },
-            )
-          ],
-        ),
-        body: Container(
+      appBar: AppBar(
+        title: Text('Movies'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => SearchScreen()));
+            },
+          )
+        ],
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Container(
           child: StreamBuilder(
             stream: _bloc.movies,
             initialData: _bloc.movieList,
@@ -40,6 +42,8 @@ class _MovieListState extends State<MovieList> {
               return buildList(snapshot.data);
             },
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

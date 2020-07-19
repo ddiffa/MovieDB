@@ -9,26 +9,27 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        bloc: bloc,
-        child: Scaffold(
-          appBar: AppBar(
-            title: Text('what movie you want to find?'),
-          ),
-          body: Column(
+      bloc: bloc,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('what movie you want to find?'),
+        ),
+        body: Padding(
+          padding: EdgeInsets.all(10.0),
+          child: Column(
             children: <Widget>[
-              Padding(
-                padding: EdgeInsets.all(16.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Enter a movie title'),
-                  onChanged: (query) => bloc.submitQuery(query),
-                ),
+              TextField(
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Enter a movie title'),
+                onChanged: (query) => bloc.submitQuery(query),
               ),
               Expanded(child: _buildResults(bloc))
             ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 
   Widget _buildResults(MoviesQueryBloc bloc) {
