@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movie_db/screen/home_screen.dart';
+import 'package:movie_db/ui/screen/movie_list.dart';
 
 void main() => runApp(MyApp());
-
 
 class MyApp extends StatelessWidget {
   @override
@@ -10,9 +9,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'My Movie',
       theme: ThemeData(
-        primarySwatch: Colors.deepOrange,
+        primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      home: MovieList(),
     );
   }
 }

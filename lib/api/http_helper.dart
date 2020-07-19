@@ -5,14 +5,14 @@ import 'package:http/http.dart' as http;
 import 'package:movie_db/model/movie.dart';
 
 class HttpHelper {
-  final String urlKey = 'api_key=ac313fc1138a0ed697567a0dedddc6cd';
-  final String urlBase = 'https://api.themoviedb.org/3/';
-  final String urlUpcoming = 'movie/upcoming?';
-  final String urlLanguage = '&language=en-US';
-  final String urlSearchBase = 'search/movie?';
+  final String _urlKey = 'api_key=ac313fc1138a0ed697567a0dedddc6cd';
+  final String _urlBase = 'https://api.themoviedb.org/3/';
+  final String _urlUpcoming = 'movie/upcoming?';
+  final String _urlLanguage = '&language=en-US';
+  final String _urlSearchBase = 'search/movie?';
 
-  Future<List> getUpcoming() async {
-    final String upcoming = urlBase + urlUpcoming + urlKey + urlLanguage;
+  Future getUpcoming() async {
+    final String upcoming = _urlBase + _urlUpcoming + _urlKey + _urlLanguage;
 
     http.Response result = await http.get(upcoming);
 
@@ -26,8 +26,8 @@ class HttpHelper {
     }
   }
 
-  Future<List> findMovies(String title) async {
-    final String query = urlBase + urlSearchBase + urlKey + "&query=" + title;
+  Future findMovies(String title) async {
+    final String query = _urlBase + _urlSearchBase + _urlKey + "&query=" + title;
     http.Response result = await http.get(query);
     if (result.statusCode == HttpStatus.ok) {
       final jsonResponse = json.decode(result.body);
